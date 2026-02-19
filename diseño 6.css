@@ -1,0 +1,321 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+    --verde-oscuro: #10261E;
+    --verde-medio: #608C54;
+    --verde-claro: #D1D9BF;
+    --verde-oliva: #A0A672;
+    --dorado: #BF9004;
+    --blanco: #ffffff;
+    --font-titulos: 'Playfair Display', serif;
+    --font-texto: 'Poppins', sans-serif;
+}
+
+/* --- ANIMACIONES --- */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* --- RESET GENERAL --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-texto);
+    background-color: var(--verde-claro);
+    color: var(--verde-oscuro);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- HEADER Y LOGO --- */
+header {
+    background-color: var(--verde-oscuro);
+    padding: 40px 20px 60px;
+    text-align: center;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.logo {
+    font-family: var(--font-titulos);
+    color: var(--dorado);
+    font-size: 2.2rem;
+    letter-spacing: 5px;
+    animation: slideInLeft 1s ease-out forwards;
+}
+
+.logo span {
+    color: var(--blanco);
+    font-weight: 300;
+}
+
+/* --- NAVEGACIÓN ESTILO CÁPSULA --- */
+nav {
+    display: flex;
+    justify-content: center;
+    margin-top: -30px;
+    position: relative;
+    z-index: 100;
+    animation: slideInLeft 1.2s ease-out forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+}
+
+nav ul {
+    background: var(--blanco);
+    display: flex;
+    list-style: none;
+    padding: 10px 30px;
+    border-radius: 50px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+nav li { margin: 0 15px; }
+
+nav a {
+    text-decoration: none;
+    color: var(--verde-oscuro);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover, nav a.active {
+    color: var();
+}
+nav a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--dorado);
+    transition: width 0.3s;
+    margin-top: 4px;
+    border-radius: 2px;
+}
+
+nav a:hover {
+    color: var(--dorado);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* --- SECCIÓN CONTACTO --- */
+.contacto-section {
+    padding: 80px 10%;
+    background: var(--blanco); /* Fondo limpio para el contenido */
+    margin: 40px 0;
+}
+
+.container-contacto {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 60px;
+    align-items: center;
+}
+
+/* Columna de Texto */
+.contacto-info-column {
+    animation: slideInLeft 1s ease-out forwards;
+    animation-delay: 0.4s;
+    opacity: 0;
+}
+
+.subtitulo {
+    color: var(--verde-medio);
+    letter-spacing: 3px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-family: var(--font-titulos);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+h2 span {
+    color: var(--dorado);
+}
+
+.descripcion-contacto {
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.detalles-contacto .item-contacto {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 15px;
+}
+
+.icon-gold {
+    background: var(--verde-claro);
+    color: var(--dorado);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.2rem;
+}
+
+/* --- FORMULARIO --- */
+.contacto-form-column {
+    background: var(--verde-oscuro);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(16, 38, 30, 0.3);
+    animation: slideInLeft 1s ease-out forwards;
+    animation-delay: 0.6s;
+    opacity: 0;
+    transition: transform 0.4s ease;
+}
+
+.contacto-form-column:hover {
+    transform: translateY(-5px);
+}
+
+.formulario-estilizado .input-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    color: var(--verde-claro);
+    font-size: 0.8rem;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.input-group input, 
+.input-group select, 
+.input-group textarea {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(209, 217, 191, 0.2);
+    padding: 12px;
+    color: white;
+    border-radius: 5px;
+    font-family: var(--font-texto);
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus, 
+.input-group textarea:focus {
+    outline: none;
+    border-color: var(--dorado);
+    background: rgba(255,255,255,0.1);
+}
+
+.btn-enviar {
+    width: 100%;
+    padding: 15px;
+    background: var(--dorado);
+    color: var(--verde-oscuro);
+    border: none;
+    border-radius: 5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-enviar:hover {
+    background: var(--verde-claro);
+    color: var(--verde-oscuro);
+}
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 40px;
+    background: var(--verde-oscuro);
+    color: var(--verde-claro);
+    font-size: 0.8rem;
+}
+
+@media (max-width: 500px) {
+    html {
+      font-size: 65%;
+    }
+  
+    .navbar .menu-items li {
+      font-size: 1.6rem;
+    }
+  
+    .testimonial-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .food-menu-container img {
+      margin: auto;
+    }
+  
+    .food-menu-item {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .form-container {
+      width: 90%;
+    }
+  
+    .contact-container {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .contact-img {
+      width: 90%;
+      margin: 3rem auto;
+    }
+  
+    .logo {
+      position: absolute;
+      top: 06px;
+      right: 15px;
+      font-size: 3rem;
+    }
+  
+    .navbar .menu-items li {
+      margin-bottom: 2.5rem;
+      font-size: 1.8rem;
+      font-weight: 500;
+    }
+  }
+  
+  @media (min-width: 769px) and (max-width: 1200px) {
+    .img-container h3 {
+      font-size: 1.5rem;
+    }
+  
+    .img-container .btn {
+      font-size: 0.7rem;
+    }
+  }
+  
+  @media (orientation: landscape) and (max-height: 500px) {
+    .showcase-area {
+      height: 50vmax;
+    }
+  }

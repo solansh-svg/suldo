@@ -1,0 +1,332 @@
+/* =========================
+   PALETA DE COLORES
+========================= */
+:root {
+    --verde-oscuro: #10261E;
+    --verde-medio: #608C54;
+    --verde-claro: #D1D9BF;
+    --verde-oliva: #A0A672;
+    --dorado: #BF9004;
+
+    --font-titulos: 'Playfair Display', serif;
+    --font-texto: 'Poppins', sans-serif;
+}
+
+/* =========================
+   RESET
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* =========================
+   BODY
+========================= */
+body {
+    font-family: var(--font-texto);
+    background-color: var(--verde-claro);
+    color: var(--verde-oscuro);
+    line-height: 1.6;
+}
+
+/* =========================
+   HEADER
+========================= */
+header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 40px;
+    background-color: var(--verde-oscuro);
+    color: var(--verde-claro);
+    transition: background-color 0.5s ease, transform 0.4s ease;
+}
+
+header:hover {
+    background-color: var(--verde-medio);
+    transform: translateY(-4px);
+}
+
+header img {
+    width: 80px;
+    transition: transform 0.5s ease;
+}
+
+header:hover img {
+    transform: scale(1.1) rotate(-3deg);
+}
+
+header h1 {
+    font-family: var(--font-titulos);
+    font-size: 2.3rem;
+    letter-spacing: 1px;
+    transition: letter-spacing 0.4s ease, color 0.4s ease;
+}
+
+header:hover h1 {
+    letter-spacing: 3px;
+    color: var(--dorado);
+}
+
+header p {
+    opacity: 0.85;
+    transition: opacity 0.4s ease;
+}
+
+header:hover p {
+    opacity: 1;
+}
+
+/* =========================
+   NAV
+========================= */
+nav {
+    background-color: var(--verde-medio);
+    display: flex;
+    justify-content: center;
+}
+nav ul {
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0 40px; /* Padding lateral más amplio */
+    height: 56px; /* Altura fija para orden visual */
+    border-radius: 100px; /* Bordes totalmente redondeados (estilo cápsula) */
+    box-shadow: 0 10px 30px rgba(16, 38, 30, 0.12); /* Sombra suave de tono verde oscuro */
+    border: 1px solid rgba(191, 144, 4, 0.1); /* Borde dorado casi imperceptible */
+}s
+
+nav li {
+    list-style: none;
+    margin: 0 15px;
+}
+
+nav a {
+    display: block;
+    padding: 15px 25px;
+    color: var(--verde-oscuro);
+    text-decoration: none;
+    font-weight: 400;
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+nav a:hover {
+    background-color: var();
+    color: var(--verde-oscuro);
+}
+nav a:hover, nav a.active {
+    color: var();
+}
+
+nav a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--dorado);
+    transition: width 0.3s;
+    margin-top: 4px;
+    border-radius: 2px;
+}
+
+nav a:hover {
+    color: var(--dorado);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+
+/* =========================
+   HERO
+========================= */
+.hero {
+    text-align: center;
+    padding: 90px 20px;
+    background: linear-gradient(
+        to right,
+        var(--verde-medio),
+        var(--verde-oliva)
+    );
+    color: var(--verde-oscuro);
+}
+
+.hero h1 {
+    font-family: var(--font-titulos);
+    font-size: 2.7rem;
+    transition: transform 0.5s ease, color 0.5s ease;
+}
+
+.hero h1:hover {
+    transform: scale(1.05);
+    color: var(--dorado);
+}
+
+.hero p {
+    font-size: 1.2rem;
+    transition: color 0.4s ease;
+}
+
+.hero p:hover {
+    color: var(--verde-oscuro);
+}
+
+/* =========================
+   SECCIONES
+========================= */
+section {
+    padding: 60px 40px;
+}
+
+/* =========================
+   TÍTULOS
+========================= */
+h2, h3 {
+    font-family: var(--font-titulos);
+    margin-bottom: 15px;
+    color: var(--verde-oscuro);
+    transition: color 0.4s ease, transform 0.4s ease;
+}
+
+h2:hover, h3:hover {
+    color: var(--dorado);
+    transform: translateX(6px);
+    text-shadow: 1px 1px 8px rgba(191, 144, 4, 0.4);
+}
+
+/* =========================
+   TEXTO
+========================= */
+p {
+    font-size: 1.05rem;
+    font-weight: 300;
+    transition: color 0.4s ease, transform 0.4s ease;
+}
+
+p:hover {
+    color: var(--verde-medio);
+    transform: translateY(-2px);
+}
+
+/* =========================
+   TEXTO DESTACADO
+========================= */
+.texto {
+    background-color: white;
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 6px solid var(--dorado);
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.texto:hover {
+    box-shadow: 0 10px 25px rgba(16, 38, 30, 0.25);
+    transform: scale(1.02);
+}
+
+/* =========================
+   CARD
+========================= */
+.card {
+    background-color: white;
+    margin: 40px;
+    padding: 30px;
+    border-radius: 16px;
+    transition: box-shadow 0.5s ease, transform 0.5s ease;
+}
+
+.card:hover {
+    box-shadow: 0 15px 35px rgba(16, 38, 30, 0.35);
+    transform: translateY(-6px);
+}
+
+
+footer {
+    background-color: var(--verde-oscuro);
+    color: var(--verde-claro);
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+
+@media (max-width: 500px) {
+    html {
+      font-size: 65%;
+    }
+  
+    .navbar .menu-items li {
+      font-size: 1.6rem;
+    }
+  
+    .testimonial-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .food-menu-container img {
+      margin: auto;
+    }
+  
+    .food-menu-item {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .form-container {
+      width: 90%;
+    }
+  
+    .contact-container {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .contact-img {
+      width: 90%;
+      margin: 3rem auto;
+    }
+  
+    .logo {
+      position: absolute;
+      top: 06px;
+      right: 15px;
+      font-size: 3rem;
+    }
+  
+    .navbar .menu-items li {
+      margin-bottom: 2.5rem;
+      font-size: 1.8rem;
+      font-weight: 500;
+    }
+  }
+  
+  @media (min-width: 769px) and (max-width: 1200px) {
+    .img-container h3 {
+      font-size: 1.5rem;
+    }
+  
+    .img-container .btn {
+      font-size: 0.7rem;
+    }
+  }
+  
+  @media (orientation: landscape) and (max-height: 500px) {
+    .showcase-area {
+      height: 50vmax;
+    }
+  }
+  
+    
+    
+
+
+ 
+
+
+
+

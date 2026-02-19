@@ -1,0 +1,315 @@
+/* =========================
+   PALETA DE COLORES & FUENTES
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500&display=swap');
+
+:root {
+    --verde-oscuro: #10261E;   /* Verde Pecado 1 */
+    --verde-medio: #608C54;    /* Verde Pecado 2 */
+    --verde-claro: #D1D9BF;    /* Verde Pecado 3 */
+    --verde-oliva: #A0A672;    /* Verde Pecado 4 */
+    --dorado: #BF9004;         /* Verde Pecado 5 */
+
+    --font-titulos: 'Playfair Display', serif;
+    --font-texto: 'Poppins', sans-serif;
+}
+
+/* =========================
+   ANIMACIONES DE ENTRADA
+========================= */
+@keyframes slideFromLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-80px); /* Empieza a la izquierda */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);    /* Termina en el centro/original */
+    }
+}
+
+/* Aplicación de animación a los textos */
+header h1, header p, 
+section h2, section p, 
+.mision h2, .mision p,
+nav {
+    animation: slideFromLeft 1.2s ease-out forwards;
+    opacity: 0; /* Se mantienen invisibles hasta que inicia la animación */
+}
+
+/* Retrasos para efecto cascada (orden de aparición) */
+header h1 { animation-delay: 0.1s; }
+header p { animation-delay: 0.3s; }
+nav { animation-delay: 0.5s; }
+section h2 { animation-delay: 0.7s; }
+section p { animation-delay: 0.9s; }
+
+/* =========================
+   RESET & BODY
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-texto);
+    background-color: var(--verde-claro);
+    color: var(--verde-oscuro);
+    line-height: 1.6;
+    overflow-x: hidden; /* Evita scroll horizontal por las animaciones */
+}
+
+/* =========================
+   HEADER (ESTILO ORIGINAL CON HOVER)
+========================= */
+header {
+    display: flex;
+    flex-direction: column; /* Cambiado a columna para mejor organización con el logo */
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+    padding: 40px 20px 80px 20px;
+    background-color: var(--verde-oscuro);
+    color: var(--verde-claro);
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+    transition: background-color 0.5s ease;
+}
+
+header:hover {
+    background-color: #163228; /* Un verde ligeramente más suave al hover */
+}
+
+header img {
+    width: 90px;
+    transition: transform 0.5s ease;
+    filter: drop-shadow(0 0 5px rgba(191, 144, 4, 0.3));
+}
+
+header:hover img {
+    transform: scale(1.1) rotate(-3deg);
+}
+
+header h1 {
+    font-family: var(--font-titulos);
+    font-size: 2.8rem;
+    color: var(--dorado);
+    letter-spacing: 2px;
+}
+
+/* =========================
+   NAV (ESTILO CÁPSULA ORGANIZADA)
+========================= */
+nav {
+    display: flex;
+    justify-content: center;
+    margin-top: -30px; /* Flota sobre el header */
+    position: relative;
+    z-index: 100;
+}
+
+nav ul {
+    background: white;
+    display: flex;
+    padding: 0 30px;
+    height: 60px;
+    align-items: center;
+    border-radius: 50px;
+    list-style: none;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+nav li {
+    margin: 0 15px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--verde-oscuro);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+/* Subrayado elegante al pasar el mouse */
+nav a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--dorado);
+    transition: width 0.3s;
+    margin-top: 4px;
+}
+
+nav a:hover {
+    color: var(--dorado);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* =========================
+   SECCIONES DE TEXTO
+========================= */
+section {
+    padding: 80px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+h2 {
+    font-family: var(--font-titulos);
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--verde-oscuro);
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--dorado);
+    margin-top: 10px;
+}
+
+p {
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+/* =========================
+   GALERÍA (CON EFECTO DESDE ABAJO)
+========================= */
+.galeria {
+    text-align: center;
+    max-width: 1200px;
+}
+
+.galeria .imagenes {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap; /* Permite que se ajuste en móviles */
+    margin-top: 40px;
+}
+
+.galeria .imagenes img {
+    width: 100%;
+    max-width: 320px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    transition: all 0.5s ease;
+}
+
+/* Efecto Hover en imágenes */
+.galeria .imagenes img:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 15px 30px rgba(16, 38, 30, 0.3);
+}
+
+/* Animación especial para imágenes */
+.animate {
+    animation: slideFromBottom 1.5s ease-out forwards;
+    animation-delay: 1s;
+    opacity: 0;
+}
+
+@keyframes slideFromBottom {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    background-color: var(--verde-oscuro);
+    color: var(--verde-claro);
+    text-align: center;
+    justify-content: center;
+    padding: 40px 0;
+    margin-top: 60px;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+}
+
+
+@media (max-width: 500px) {
+    html {
+      font-size: 65%;
+    }
+  
+    .navbar .menu-items li {
+      font-size: 1.6rem;
+    }
+  
+    .testimonial-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .food-menu-container img {
+      margin: auto;
+    }
+  
+    .food-menu-item {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .form-container {
+      width: 90%;
+    }
+  
+    .contact-container {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .contact-img {
+      width: 90%;
+      margin: 3rem auto;
+    }
+  
+    .logo {
+      position: absolute;
+      top: 06px;
+      right: 15px;
+      font-size: 3rem;
+    }
+  
+    .navbar .menu-items li {
+      margin-bottom: 2.5rem;
+      font-size: 1.8rem;
+      font-weight: 500;
+    }
+  }
+  
+  @media (min-width: 769px) and (max-width: 1200px) {
+    .img-container h3 {
+      font-size: 1.5rem;
+    }
+  
+    .img-container .btn {
+      font-size: 0.7rem;
+    }
+  }
+  
+  @media (orientation: landscape) and (max-height: 500px) {
+    .showcase-area {
+      height: 50vmax;
+    }
+  }

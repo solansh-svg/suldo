@@ -1,0 +1,412 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+    --verde-oscuro: #10261E;
+    --verde-medio: #608C54;
+    --verde-claro: #D1D9BF;
+    --dorado: #BF9004;
+    --font-titulos: 'Playfair Display', serif;
+    --font-texto: 'Poppins', sans-serif;
+}
+
+/* --- ANIMACIONES (Mantenemos el efecto de izquierda a centro) --- */
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-60px); /* Movimiento más corto para mayor sutileza */
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.subtitulo, h2, .columna, .frase-destacada p, .logo, .hero-image-container {
+    animation: slideInLeft 1.2s ease-out forwards;
+    opacity: 0;
+}
+
+h2 { animation-delay: 0.3s; }
+.columna:nth-child(1) { animation-delay: 0.6s; }
+.columna:nth-child(2) { animation-delay: 0.8s; }
+.frase-destacada { animation-delay: 1s; animation: slideInLeft 1.5s ease-out forwards; }
+
+/* --- ESTILOS GENERALES --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: var(--font-texto);
+    background-color: var(--verde-claro);
+    color: var(--verde-oscuro);
+    overflow-x: hidden;
+}
+
+/* --- HEADER REDUCIDO Y ORGANIZADO --- */
+header {
+    background-color: var(--verde-oscuro);
+    padding: 40px 20px 80px; /* Reducimos el padding vertical */
+    text-align: center;
+    clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+}
+
+.logo-img { 
+    width: 60px; /* Logo más discreto */
+    margin-bottom: 10px; 
+}
+
+.logo {
+    font-family: var(--font-titulos);
+    color: var(--dorado);
+    font-size: 2rem; /* Tamaño más refinado */
+    letter-spacing: 5px;
+    margin-bottom: 25px;
+}
+
+/* Imagen Hero más pequeña y centrada */
+.hero-image-container {
+    max-width: 600px; /* Reducido de 800px a 600px para limpieza visual */
+    margin: 0 auto;
+    border: 2px solid var(--dorado); /* Borde más fino */
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+}
+
+.hero-main-img { 
+    width: 100%; 
+    height: 350px; /* Altura fija controlada */
+    object-fit: cover; /* Para que no se deforme */
+    display: block; 
+}
+
+/* --- NAVEGACIÓN --- */
+/* --- NAVEGACIÓN ORGANIZADA Y PROFESIONAL --- */
+nav {
+    display: flex;
+    justify-content: center;
+    margin-top: -28px; /* Ajuste para que flote con precisión sobre el corte del header */
+    position: relative;
+    z-index: 1000;
+    /* Animación de entrada similar a los textos */
+    animation: slideInLeft 1.2s ease-out forwards;
+    animation-delay: 0.2s;
+    opacity: 0;
+}
+
+nav ul {
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    list-style: none;
+    padding: 0 40px; /* Padding lateral más amplio */
+    height: 56px; /* Altura fija para orden visual */
+    border-radius: 100px; /* Bordes totalmente redondeados (estilo cápsula) */
+    box-shadow: 0 10px 30px rgba(16, 38, 30, 0.12); /* Sombra suave de tono verde oscuro */
+    border: 1px solid rgba(191, 144, 4, 0.1); /* Borde dorado casi imperceptible */
+}
+
+nav li {
+    position: relative;
+    margin: 0 20px; /* Espaciado uniforme entre botones */
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--verde-oscuro);
+    font-family: var(--font-texto);
+    font-size: 0.75rem; /* Tamaño refinado */
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* Efecto de subrayado elegante (Hover) */
+nav a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: var(--dorado);
+    transition: width 0.3s;
+    margin-top: 4px;
+    border-radius: 2px;
+}
+
+nav a:hover {
+    color: var(--dorado);
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* Indicador de página activa (Opcional si estás en la página actual) */
+nav a.active {
+    color: var(--dorado);
+}
+
+nav a.active::after {
+    width: 100%;
+}
+
+/* Ajuste responsivo para móviles */
+@media (max-width: 768px) {
+    nav ul {
+        padding: 10px 20px;
+        height: auto;
+        flex-direction: column;
+        border-radius: 20px;
+    }
+    
+    nav li {
+        margin: 8px 0;
+    }
+}
+/* --- SECCIÓN INFO --- */
+.proyectos-info { 
+    padding: 80px 15%; 
+    text-align: center; 
+    background: white; 
+}
+
+.subtitulo { 
+    color: var(--verde-medio); 
+    letter-spacing: 3px; 
+    font-size: 0.8rem; 
+}
+
+h2 { 
+    font-family: var(--font-titulos); 
+    font-size: 2.2rem; 
+    margin: 10px 0 40px; 
+}
+
+.grid-texto { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 80px; /* Más espacio entre columnas */
+    text-align: left; 
+}
+
+.columna h3 { 
+    font-family: var(--font-titulos); 
+    margin-bottom: 12px; 
+    color: var(--dorado); 
+    font-size: 1.3rem;
+}
+
+.columna p {
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.7;
+}
+
+.frase-destacada {
+    margin-top: 50px;
+    padding: 35px;
+    background: var(--verde-oscuro);
+    color: var(--dorado);
+    border-radius: 12px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.frase-destacada p { 
+    font-family: var(--font-titulos); 
+    font-size: 1.5rem; 
+    font-style: italic; 
+}
+
+/* --- GALERÍA ORGANIZADA --- */
+/* --- GALERÍA ORGANIZADA Y REFINADA --- */
+.gallery { 
+    padding: 40px 10%; /* Espacio superior e inferior reducido */
+    display: flex;
+    justify-content: center; /* Centra la imagen en la página */
+}
+
+.gallery-item {
+    width: 100%;
+    max-width: 800px; /* Tamaño controlado para que no sature la vista */
+    height: 400px; /* Altura elegante y fija */
+    cursor: pointer;
+    /* Animación sincronizada con el resto de la página */
+    animation: slideInLeft 1.2s ease-out forwards;
+    animation-delay: 1.4s; /* Aparece al final del flujo de lectura */
+    opacity: 0;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.gallery-item:hover .card-inner { 
+    transform: rotateY(180deg); 
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 12px; /* Esquinas más suaves */
+    overflow: hidden;
+    border: 1px solid rgba(191, 144, 4, 0.2); /* Borde dorado muy fino */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); /* Sombra elegante, no pesada */
+}
+
+.card-front img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    filter: brightness(0.9); /* Un toque más oscuro para que el texto resalte */
+}
+
+/* Cara trasera mejorada */
+.card-back {
+    background: var(--verde-oscuro);
+    color: var(--verde-claro);
+    transform: rotateY(180deg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+}
+
+.card-back h3 { 
+    color: var(--dorado); 
+    font-family: var(--font-titulos);
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+}
+
+.card-back p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.card-front, .card-back {
+    position: absolute; width: 100%; height: 100%;
+    backface-visibility: hidden; border-radius: 12px; overflow: hidden;
+}
+
+.card-front img { width: 100%; height: 100%; object-fit: cover; }
+
+.card-back {
+    background: var(--verde-oscuro); color: white;
+    transform: rotateY(180deg); display: flex;
+    flex-direction: column; justify-content: center; padding: 30px;
+    text-align: center;
+}
+
+.card-back h3 { color: var(--dorado); margin-bottom: 10px; }
+
+.ver-mas{
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 18px;
+    border: 1px solid var(--dorado);
+    border-radius: 30px;
+    color: var(--dorado);
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: all 0.3s ease;
+   
+}
+
+/* Hover elegante */
+.card-back:hover .ver-mas{
+    background: var(--dorado);
+    color: var(--verde-oscuro);
+}
+
+
+/* --- FOOTER --- */
+footer {
+    padding: 30px;
+    text-align: center;
+    background: var(--verde-oscuro);
+    color: var(--verde-claro);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 500px) {
+    html {
+      font-size: 65%;
+    }
+  
+    .navbar .menu-items li {
+      font-size: 1.6rem;
+    }
+  
+    .testimonial-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .food-menu-container img {
+      margin: auto;
+    }
+  
+    .food-menu-item {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .form-container {
+      width: 90%;
+    }
+  
+    .contact-container {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .contact-img {
+      width: 90%;
+      margin: 3rem auto;
+    }
+  
+    .logo {
+      position: absolute;
+      top: 06px;
+      right: 15px;
+      font-size: 3rem;
+    }
+  
+    .navbar .menu-items li {
+      margin-bottom: 2.5rem;
+      font-size: 1.8rem;
+      font-weight: 500;
+    }
+  }
+  
+  @media (min-width: 769px) and (max-width: 1200px) {
+    .img-container h3 {
+      font-size: 1.5rem;
+    }
+  
+    .img-container .btn {
+      font-size: 0.7rem;
+    }
+  }
+  
+  @media (orientation: landscape) and (max-height: 500px) {
+    .showcase-area {
+      height: 50vmax;
+    }
+  }
